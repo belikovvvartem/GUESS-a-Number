@@ -1,3 +1,9 @@
+let backgroundSound = new Audio()
+backgroundSound.src = "./background.mp3"
+backgroundSound.level = 0.3
+
+backgroundSound.play()
+
 let randomNumber = Math.floor(Math.random() * 15) + 1;
 
 let attempts = 3;
@@ -26,7 +32,8 @@ numberElements.forEach((numberElement) => {
       attemptsElement.textContent = "🥇Вітаю! Ви відгадали число!🥇";
       disableNumbers();
       showRetryButton();
-      changeBackgroundColor("green"); 
+      changeBackgroundColor("green");
+      backgroundSound.pause();
     } else if (attempts > 0 && chosenNumber < randomNumber) {
       attemptsElement.textContent = `Загадане число більше. У вас залишилось ${attempts} спроби`;
       markInvalidNumbers(chosenNumber, "less");
@@ -40,6 +47,7 @@ numberElements.forEach((numberElement) => {
       disableNumbers();
       showRetryButton();
       changeBackgroundColor("red"); 
+      backgroundSound.pause();
     }
   });
 });
