@@ -11,7 +11,7 @@ const retryButton = document.createElement("button");
 retryButton.textContent = "Спробувати ще";
 retryButton.style.display = "none";
 retryButton.addEventListener("click", () => {
-  window.location.reload(); // Перезавантажуємо сторінку
+  window.location.reload(); 
 });
 taskElement.after(retryButton);
 
@@ -26,20 +26,20 @@ numberElements.forEach((numberElement) => {
       attemptsElement.textContent = "Вітаю! Ви відгадали число!";
       disableNumbers();
       showRetryButton();
-      changeBackgroundColor("green"); // Перемога
+      changeBackgroundColor("green"); 
     } else if (attempts > 0 && chosenNumber < randomNumber) {
       attemptsElement.textContent = `Загадане число більше. У вас залишилось ${attempts} спроби`;
       markInvalidNumbers(chosenNumber, "less");
-      changeBackgroundColor("orange"); // Наближення до фіаско
+      changeBackgroundColor("orange"); 
     } else if (attempts > 0 && chosenNumber > randomNumber) {
       attemptsElement.textContent = `Загадане число менше. У вас залишилось ${attempts} спроби`;
       markInvalidNumbers(chosenNumber, "greater");
-      changeBackgroundColor("orange"); // Наближення до фіаско
+      changeBackgroundColor("orange"); 
     } else {
       attemptsElement.textContent = `Ви програли. Правильне число було: ${randomNumber}`;
       disableNumbers();
       showRetryButton();
-      changeBackgroundColor("red"); // Фіаско
+      changeBackgroundColor("red"); 
     }
   });
 });
@@ -51,7 +51,7 @@ function disableNumbers() {
 }
 
 function showRetryButton() {
-  retryButton.style.display = "block"; // Показуємо кнопку
+  retryButton.style.display = "block"; 
 }
 
 function markInvalidNumbers(number, condition) {
@@ -78,12 +78,11 @@ function changeBackgroundColor(color) {
   overlay.style.width = "100%";
   overlay.style.height = "100%";
   overlay.style.backgroundColor = color;
-  overlay.style.opacity = "0.5"; // напівпрозорий фільтр
-  overlay.style.zIndex = "9999"; // забезпечує, щоб фільтр був поверх фону
+  overlay.style.opacity = "0.5"; 
+  overlay.style.zIndex = "9999"; 
   body.appendChild(overlay);
 
-  // Видаляємо фільтр після певного часу
   setTimeout(() => {
     body.removeChild(overlay);
-  }, 500); // Фільтр пропадає через 0.5 секунди
+  }, 250); 
 }
