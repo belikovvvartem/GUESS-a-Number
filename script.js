@@ -23,7 +23,7 @@ numberElements.forEach((numberElement) => {
     attempts--;
 
     if (chosenNumber === randomNumber) {
-      attemptsElement.textContent = "Вітаю! Ви відгадали число!";
+      attemptsElement.textContent = "🥇Вітаю! Ви відгадали число!🥇";
       disableNumbers();
       showRetryButton();
       changeBackgroundColor("green"); 
